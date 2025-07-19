@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,8 @@
             --darker: #080311;
             --light: #f0f0ff;
             --card-bg: rgba(26, 12, 47, 0.6);
+            --danger: #ff3860;
+            --warning: #ffdd57;
         }
 
         * {
@@ -30,54 +32,7 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-
-        .bg-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-element {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            filter: blur(60px);
-        }
-
-        .element-1 {
-            width: 800px;
-            height: 800px;
-            background: var(--primary);
-            top: -400px;
-            left: -400px;
-            animation: float 12s ease-in-out infinite;
-        }
-
-        .element-2 {
-            width: 600px;
-            height: 600px;
-            background: var(--secondary);
-            bottom: -300px;
-            right: -300px;
-            animation: float 14s ease-in-out infinite;
-            animation-delay: 2s;
-        }
-
-        .element-3 {
-            width: 400px;
-            height: 400px;
-            background: #ff00cc;
-            top: 50%;
-            left: 20%;
-            animation: float 10s ease-in-out infinite;
-            animation-delay: 4s;
-        }
-
-        header {
+ header {
             position: fixed;
             top: 0;
             width: 100%;
@@ -206,6 +161,7 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
         }
+        /* ... (ابقى على كل أنماط CSS السابقة كما هي حتى قسم team-section) ... */
 
         .team-section {
             padding: 150px 5% 100px;
@@ -374,7 +330,158 @@
             width: 20px;
         }
 
-        footer {
+        .employee-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: none;
+        }
+
+        .edit-btn {
+            background-color: var(--warning);
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .edit-btn:hover {
+            background-color: #ffd83d;
+            transform: translateY(-3px);
+        }
+
+        .delete-btn {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background-color: #ff1f4b;
+            transform: translateY(-3px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(12, 6, 21, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-light);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 10px 50px rgba(138, 43, 226, 0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-light);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-light);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            background-color: rgba(26, 12, 47, 0.8);
+            color: var(--light);
+            font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(138, 43, 226, 0.1);
+            transform: translateY(-3px);
+        }
+footer {
             background: linear-gradient(to bottom, var(--dark), var(--darker));
             padding: 100px 5% 50px;
             position: relative;
@@ -493,6 +600,7 @@
                 font-size: 2.2rem;
             }
         }
+        /* ... (ابقى على باقي أنماط CSS كما هي) ... */
     </style>
 </head>
 <body>
@@ -532,192 +640,65 @@
             <p>Efficiently manage your team members with our powerful organization tools</p>
         </div>
 
-        <button class="add-employee-btn">
+        <button id="openAddEmployeeModal" class="add-employee-btn">
             <i class="fas fa-user-plus"></i> Add Employee
         </button>
 
-        <div class="team-grid">
-            <!-- Employee Card 1 -->
-            <div class="team-card">
-                <div class="employee-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
-                </div>
-                <div class="employee-info">
-                    <h3>Sarah Johnson</h3>
-                    <p>Project Manager</p>
-                    <div class="employee-contact">
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fas fa-comment-dots"></i></a>
-                    </div>
-                </div>
-                <div class="employee-details">
-                    <div class="detail-item">
-                        <i class="fas fa-id-badge"></i>
-                        <span>ID: EMP-1001</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Joined: 15/03/2022</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tasks"></i>
-                        <span>Projects: 12 Active</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Employee Card 2 -->
-            <div class="team-card">
-                <div class="employee-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
-                </div>
-                <div class="employee-info">
-                    <h3>Michael Chen</h3>
-                    <p>Lead Developer</p>
-                    <div class="employee-contact">
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fas fa-comment-dots"></i></a>
-                    </div>
-                </div>
-                <div class="employee-details">
-                    <div class="detail-item">
-                        <i class="fas fa-id-badge"></i>
-                        <span>ID: EMP-1002</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Joined: 22/06/2021</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tasks"></i>
-                        <span>Projects: 8 Active</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Employee Card 3 -->
-            <div class="team-card">
-                <div class="employee-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez">
-                </div>
-                <div class="employee-info">
-                    <h3>Emma Rodriguez</h3>
-                    <p>UX Designer</p>
-                    <div class="employee-contact">
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fas fa-comment-dots"></i></a>
-                    </div>
-                </div>
-                <div class="employee-details">
-                    <div class="detail-item">
-                        <i class="fas fa-id-badge"></i>
-                        <span>ID: EMP-1003</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Joined: 05/01/2023</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tasks"></i>
-                        <span>Projects: 5 Active</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Employee Card 4 -->
-            <div class="team-card">
-                <div class="employee-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Kim">
-                </div>
-                <div class="employee-info">
-                    <h3>David Kim</h3>
-                    <p>Marketing Specialist</p>
-                    <div class="employee-contact">
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fas fa-comment-dots"></i></a>
-                    </div>
-                </div>
-                <div class="employee-details">
-                    <div class="detail-item">
-                        <i class="fas fa-id-badge"></i>
-                        <span>ID: EMP-1004</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Joined: 18/09/2022</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tasks"></i>
-                        <span>Projects: 7 Active</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Employee Card 5 -->
-            <div class="team-card">
-                <div class="employee-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Lisa Wong">
-                </div>
-                <div class="employee-info">
-                    <h3>Lisa Wong</h3>
-                    <p>Data Analyst</p>
-                    <div class="employee-contact">
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fas fa-comment-dots"></i></a>
-                    </div>
-                </div>
-                <div class="employee-details">
-                    <div class="detail-item">
-                        <i class="fas fa-id-badge"></i>
-                        <span>ID: EMP-1005</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Joined: 30/04/2023</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tasks"></i>
-                        <span>Projects: 3 Active</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Employee Card 6 -->
-            <div class="team-card">
-                <div class="employee-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="James Wilson">
-                </div>
-                <div class="employee-info">
-                    <h3>James Wilson</h3>
-                    <p>HR Manager</p>
-                    <div class="employee-contact">
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fas fa-comment-dots"></i></a>
-                    </div>
-                </div>
-                <div class="employee-details">
-                    <div class="detail-item">
-                        <i class="fas fa-id-badge"></i>
-                        <span>ID: EMP-1006</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Joined: 12/11/2021</span>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tasks"></i>
-                        <span>Projects: 10 Active</span>
-                    </div>
-                </div>
-            </div>
+        <div id="teamGrid" class="team-grid">
+            <!-- سيتم إضافة بطاقات الموظفين هنا ديناميكيًا باستخدام JavaScript -->
         </div>
     </section>
+
+    <!-- Modal لإضافة/تعديل موظف -->
+    <div id="employeeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title" id="modalTitle">Add New Employee</h2>
+            <form id="employeeForm">
+                <input type="hidden" id="employeeId">
+                
+                <div class="form-group">
+                    <label for="employeeName">Full Name</label>
+                    <input type="text" id="employeeName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="employeePosition">Position</label>
+                    <input type="text" id="employeePosition" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="employeeEmail">Email</label>
+                    <input type="email" id="employeeEmail" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="employeePhone">Phone</label>
+                    <input type="tel" id="employeePhone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="employeeJoinDate">Join Date</label>
+                    <input type="date" id="employeeJoinDate" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="employeeProjects">Active Projects</label>
+                    <input type="number" id="employeeProjects" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="employeeAvatar">Avatar URL</label>
+                    <input type="url" id="employeeAvatar" class="form-control" placeholder="https://example.com/avatar.jpg">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Employee</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-wave"></div>
@@ -774,27 +755,249 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '15px 5%';
-                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.3)';
-            } else {
-                header.style.padding = '20px 5%';
-                header.style.boxShadow = 'none';
+        // بيانات وهمية للموظفين
+        let employees = [
+            {
+                id: 'EMP-1001',
+                name: 'Sarah Johnson',
+                position: 'Project Manager',
+                email: 'sarah.j@example.com',
+                phone: '+1 (555) 123-4567',
+                joinDate: '2022-03-15',
+                projects: 12,
+                avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
+            },
+            {
+                id: 'EMP-1002',
+                name: 'Michael Chen',
+                position: 'Lead Developer',
+                email: 'michael.c@example.com',
+                phone: '+1 (555) 234-5678',
+                joinDate: '2021-06-22',
+                projects: 8,
+                avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
+            },
+            {
+                id: 'EMP-1003',
+                name: 'Emma Rodriguez',
+                position: 'UX Designer',
+                email: 'emma.r@example.com',
+                phone: '+1 (555) 345-6789',
+                joinDate: '2023-01-05',
+                projects: 5,
+                avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
+            },
+            {
+                id: 'EMP-1004',
+                name: 'David Kim',
+                position: 'Marketing Specialist',
+                email: 'david.k@example.com',
+                phone: '+1 (555) 456-7890',
+                joinDate: '2022-09-18',
+                projects: 7,
+                avatar: 'https://randomuser.me/api/portraits/men/75.jpg'
+            },
+            {
+                id: 'EMP-1005',
+                name: 'Lisa Wong',
+                position: 'Data Analyst',
+                email: 'lisa.w@example.com',
+                phone: '+1 (555) 567-8901',
+                joinDate: '2023-04-30',
+                projects: 3,
+                avatar: 'https://randomuser.me/api/portraits/women/63.jpg'
+            },
+            {
+                id: 'EMP-1006',
+                name: 'James Wilson',
+                position: 'HR Manager',
+                email: 'james.w@example.com',
+                phone: '+1 (555) 678-9012',
+                joinDate: '2021-11-12',
+                projects: 10,
+                avatar: 'https://randomuser.me/api/portraits/men/81.jpg'
+            }
+        ];
+
+        // عناصر DOM
+        const teamGrid = document.getElementById('teamGrid');
+        const openModalBtn = document.getElementById('openAddEmployeeModal');
+        const modal = document.getElementById('employeeModal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const employeeForm = document.getElementById('employeeForm');
+        const modalTitle = document.getElementById('modalTitle');
+
+        // عرض الموظفين في الشبكة
+        function renderEmployees() {
+            teamGrid.innerHTML = '';
+            employees.forEach(employee => {
+                const employeeCard = document.createElement('div');
+                employeeCard.className = 'team-card';
+                employeeCard.innerHTML = `
+                    <div class="employee-avatar">
+                        <img src="${employee.avatar}" alt="${employee.name}">
+                    </div>
+                    <div class="employee-info">
+                        <h3>${employee.name}</h3>
+                        <p>${employee.position}</p>
+                        <div class="employee-contact">
+                            <a href="mailto:${employee.email}"><i class="fas fa-envelope"></i></a>
+                            <a href="tel:${employee.phone}"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fas fa-comment-dots"></i></a>
+                        </div>
+                    </div>
+                    <div class="employee-details">
+                        <div class="detail-item">
+                            <i class="fas fa-id-badge"></i>
+                            <span>ID: ${employee.id}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Joined: ${formatDate(employee.joinDate)}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Projects: ${employee.projects} Active</span>
+                        </div>
+                    </div>
+                    <div class="employee-actions">
+                        <button class="action-btn edit-btn" data-id="${employee.id}">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete-btn" data-id="${employee.id}">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                `;
+                teamGrid.appendChild(employeeCard);
+            });
+
+            // إضافة مستمعي الأحداث لأزرار التعديل والحذف
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const employeeId = e.target.closest('button').getAttribute('data-id');
+                    editEmployee(employeeId);
+                });
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const employeeId = e.target.closest('button').getAttribute('data-id');
+                    deleteEmployee(employeeId);
+                });
+            });
+        }
+
+        // تنسيق التاريخ
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // فتح المودال لإضافة موظف
+        openModalBtn.addEventListener('click', () => {
+            document.getElementById('employeeId').value = '';
+            employeeForm.reset();
+            modalTitle.textContent = 'Add New Employee';
+            modal.style.display = 'block';
+        });
+
+        // إغلاق المودال
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+
+        // إغلاق المودال عند النقر خارج المحتوى
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
             }
         });
 
-        // Add employee button functionality
-        document.querySelector('.add-employee-btn').addEventListener('click', function() {
-            alert('Add Employee form will open here. This would typically open a modal or new page to add a new employee.');
-            // In a real implementation, you would open a modal or redirect to a form page
+        // معالجة إرسال النموذج
+        employeeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const employeeId = document.getElementById('employeeId').value;
+            const employeeData = {
+                name: document.getElementById('employeeName').value,
+                position: document.getElementById('employeePosition').value,
+                email: document.getElementById('employeeEmail').value,
+                phone: document.getElementById('employeePhone').value,
+                joinDate: document.getElementById('employeeJoinDate').value,
+                projects: parseInt(document.getElementById('employeeProjects').value),
+                avatar: document.getElementById('employeeAvatar').value || `https://randomuser.me/api/portraits/${Math.random() > 0.5 ? 'men' : 'women'}/${Math.floor(Math.random() * 100)}.jpg`
+            };
+
+            if (employeeId) {
+                // تعديل موظف موجود
+                const index = employees.findIndex(emp => emp.id === employeeId);
+                if (index !== -1) {
+                    employees[index] = { ...employees[index], ...employeeData };
+                }
+            } else {
+                // إضافة موظف جديد
+                const newId = `EMP-${1000 + employees.length + 1}`;
+                employees.push({
+                    id: newId,
+                    ...employeeData
+                });
+            }
+
+            renderEmployees();
+            closeModal();
         });
 
-        // Animation for team cards
-        const teamCards = document.querySelectorAll('.team-card');
-        teamCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
+        // تعديل موظف
+        function editEmployee(employeeId) {
+            const employee = employees.find(emp => emp.id === employeeId);
+            if (employee) {
+                document.getElementById('employeeId').value = employee.id;
+                document.getElementById('employeeName').value = employee.name;
+                document.getElementById('employeePosition').value = employee.position;
+                document.getElementById('employeeEmail').value = employee.email;
+                document.getElementById('employeePhone').value = employee.phone;
+                document.getElementById('employeeJoinDate').value = employee.joinDate;
+                document.getElementById('employeeProjects').value = employee.projects;
+                document.getElementById('employeeAvatar').value = employee.avatar;
+                
+                modalTitle.textContent = 'Edit Employee';
+                modal.style.display = 'block';
+            }
+        }
+
+        // حذف موظف
+        function deleteEmployee(employeeId) {
+            if (confirm('Are you sure you want to delete this employee?')) {
+                employees = employees.filter(emp => emp.id !== employeeId);
+                renderEmployees();
+            }
+        }
+
+        // توليد ID عشوائي
+        function generateId() {
+            return 'EMP-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+        }
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            renderEmployees();
+            
+            // تأثيرات التمرير للهيدر
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.padding = '15px 5%';
+                    header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.3)';
+                } else {
+                    header.style.padding = '20px 5%';
+                    header.style.boxShadow = 'none';
+                }
+            });
         });
     </script>
 </body>
