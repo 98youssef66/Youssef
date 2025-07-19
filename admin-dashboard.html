@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlan - Planning & Team Organization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#818cf8',
+                        dark: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center md:justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-primary p-2 rounded-lg">
+                    <i class="fas fa-brain text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-gray-900">SmartPlan</h1>
+                    <p class="text-sm text-gray-600">Intelligent Planning & Team Collaboration</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-2 md:mt-0">
+                <div class="relative">
+                    <i class="fas fa-bell text-gray-500 text-lg"></i>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white">
+                        <span>JD</span>
+                    </div>
+                    <span class="hidden md:block font-medium">John Doe</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-md p-4 hidden md:block">
+            <nav>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg bg-primary text-white">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Team-organiz.html" target="_blank" class="flex items-center space-x-3 p-2 rounded-lg text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-users"></i>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Calendar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+                <h3 class="font-semibold text-gray-700 mb-2">Team Progress</h3>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>Project Completion</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-primary h-2 rounded-full" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm">
+                            <span>Team Performance</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-green-500 h-2 rounded-full" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile menu button -->
+        <div class="fixed bottom-0 left-0 right-0 bg-white shadow-lg md:hidden z-50">
+            <div class="flex justify-around py-3">
+                <a href="#" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="text-xs mt-1">Dashboard</span>
+                </a>
+                <a href="Team-organiz.html" class="flex flex-col items-center text-gray-600">
+                    <i class="fas fa-users"></i>
+                    <span class="text-xs mt-1">Team</span>
+                </a>
+                <a href="#" class="flex flex-col items-center text-gray-600">
+                    <i class="fas fa-project-diagram"></i>
+                    <span class="text-xs mt-1">Projects</span>
+                </a>
+                <a href="#" class="flex flex-col items-center text-gray-600">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="text-xs mt-1">Calendar</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-4 md:p-6">
+            <!-- Welcome Banner -->
+            <div class="bg-gradient-to-r from-primary to-secondary rounded-xl p-6 mb-6 text-white shadow-lg">
+                <h2 class="text-2xl font-bold mb-2">Welcome to SmartPlan!</h2>
+                <p class="max-w-2xl">Streamline your team's workflow with AI-powered planning and organization tools designed for modern teams.</p>
+            </div>
+
+            <!-- Feature Sections -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Smart Planning Section -->
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                            <i class="fas fa-lightbulb text-blue-600 text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-900">Smart Planning</h2>
+                    </div>
+                    <p class="text-gray-600 mb-4">Our AI-powered planning system analyzes your team's workload, deadlines, and priorities to create optimized schedules and task assignments.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Automated task prioritization based on urgency and impact</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Resource allocation forecasting and optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Predictive timeline estimation for complex projects</span>
+                        </li>
+                    </ul>
+                    <button class="mt-4 bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition duration-300">
+                        <a href="Demo-Admin-Smart-planning.html" target="_blank">Explore Features</a><i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Team Organization Section -->
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                            <i class="fas fa-users text-purple-600 text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-900">Team Organization</h2>
+                    </div>
+                    <p class="text-gray-600 mb-4">Centralize your team's communication, task management, and progress tracking in one intuitive platform designed for seamless collaboration.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Role-based access control and permissions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Real-time collaboration tools and notifications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Performance analytics and team workload visualization</span>
+                        </li>
+                    </ul>
+                    <button class="mt-4 bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition duration-300">
+                        <a href="Team-organiz.html" target="_blank" >Organize Your Team</a><i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cards Grid Section -->
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Recent Activity & Insights</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Box 5 -->
+                <div class="bg-white rounded-xl shadow-md p-5 border border-gray-100">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-gray-900">Project Timeline</h3>
+                        <div class="bg-blue-100 p-2 rounded-lg">
+                            <i class="fas fa-chart-line text-blue-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Current projects are tracking 12% ahead of schedule based on team performance metrics.</p>
+                    <div class="flex items-center text-sm">
+                        <span class="text-green-600 font-medium"><i class="fas fa-arrow-up mr-1"></i> 12%</span>
+                        <span class="ml-auto text-gray-500">Updated today</span>
+                    </div>
+                </div>
+
+                <!-- Box 6 -->
+                <div class="bg-white rounded-xl shadow-md p-5 border border-gray-100">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-gray-900">Team Availability</h3>
+                        <div class="bg-green-100 p-2 rounded-lg">
+                            <i class="fas fa-user-check text-green-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Your team has 85% availability this week, with 3 members at full capacity.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <!-- Box 7 -->
+                <div class="bg-white rounded-xl shadow-md p-5 border border-gray-100">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-gray-900">Milestones</h3>
+                        <div class="bg-amber-100 p-2 rounded-lg">
+                            <i class="fas fa-flag-checkered text-amber-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">3 milestones due this week. Q3 Planning Session scheduled for Friday.</p>
+                    <div class="bg-blue-50 rounded-lg p-2 mt-3">
+                        <div class="flex items-center text-sm">
+                            <span class="font-medium">Q3 Planning</span>
+                            <span class="ml-auto text-gray-500">Fri 10:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 8 -->
+                <div class="bg-white rounded-xl shadow-md p-5 border border-gray-100">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-gray-900">Resource Allocation</h3>
+                        <div class="bg-purple-100 p-2 rounded-lg">
+                            <i class="fas fa-balance-scale text-purple-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Design team at 95% capacity. Development team has 15% available bandwidth.</p>
+                    <div class="flex space-x-4 mt-3">
+                        <div>
+                            <div class="text-sm text-gray-600 mb-1">Design</div>
+                            <div class="w-12 bg-gray-200 rounded-full h-2">
+                                <div class="bg-red-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-600 mb-1">Dev</div>
+                            <div class="w-12 bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-brain text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">SmartPlan</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-1">Intelligent planning for modern teams</p>
+                </div>
+
+                <div class="flex space-x-6 text-gray-400">
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 SmartPlan Inc. All rights reserved.</p>
+                <p class="mt-2">Designed with <i class="fas fa-heart text-red-500"></i> for productive teams</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

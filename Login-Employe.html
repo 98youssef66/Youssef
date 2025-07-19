@@ -1,0 +1,276 @@
+﻿<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Employee Portal Login</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        :root {
+            --color-primary: #a240ff;
+            --color-muted: #a392b3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #f9f8fa;
+            font-family: sans-serif;
+        }
+
+        .background {
+            position: fixed;
+            z-index: -1;
+            top: 70%;
+            left: 50%;
+            bottom: -70vh;
+            translate: -50% 0;
+            width: 150vw;
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleY(3) scaleX(2.25);
+            transform-origin: bottom;
+            display: block;
+            pointer-events: none;
+        }
+
+        .login {
+            position: relative;
+            z-index: 2;
+            background: rgba(6, 5, 7, 0.25);
+            backdrop-filter: blur(38px);
+            border-radius: 40px;
+            padding: 40px 50px 30px; /* تم تقليص الحواف الداخلية */
+            width: 500px; /* تم تقليص العرض */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+            .login img {
+                width: 100px;
+                margin: -25px 0 32px;
+            }
+
+            .login h2 {
+                font-size: 24px;
+                font-weight: 500;
+                margin: 0 0 6px;
+            }
+
+            .login h3 {
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--color-muted);
+                margin: 0 0 56px;
+            }
+
+            .login form {
+                display: grid;
+                gap: 12px;
+                width: 100%;
+                margin: 0 0 32px;
+            }
+
+        .textbox {
+            position: relative;
+        }
+
+        .login input,
+        .login button {
+            height: 56px;
+            font-size: 16px;
+            font-family: inherit;
+            padding: 0 16px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .textbox input {
+            width: 100%;
+            padding-top: 10px;
+            background: #251930;
+            outline: none;
+            color: inherit;
+            box-shadow: 0 0 0 2px transparent;
+            transition: 0.3s;
+        }
+
+            .textbox input:focus {
+                box-shadow: 0 0 0 2px var(--color-primary);
+            }
+
+        .textbox label {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--color-muted);
+            transition: 0.3s;
+        }
+
+        .textbox input:focus + label,
+        .textbox input:not(:placeholder-shown):valid + label {
+            transform: translateY(-112%) scale(0.725);
+            transform-origin: 0 50%;
+        }
+
+        .login button {
+            position: relative;
+            background: var(--color-primary);
+            color: #f9f9f9;
+            font-size: 17px;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(162, 64, 255, 0.3);
+        }
+
+            .login button:hover {
+                background: #8a2be2;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(162, 64, 255, 0.4);
+            }
+
+            .login button:active {
+                transform: translateY(0);
+            }
+
+        .login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 24px;
+        }
+
+        .btn-text {
+            transition: all 0.3s ease;
+        }
+
+        .arrow-icon {
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .login-btn:hover .btn-text {
+            transform: translateX(-4px);
+        }
+
+        .login-btn:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        .login button .hover-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .login button:hover .btn-text {
+            transform: translateX(-10px);
+        }
+
+        .login button:hover .arrow-icon {
+            transform: translateX(10px);
+        }
+
+        .login button:hover .hover-text {
+            opacity: 1;
+            transform: translate(-30px, -50%);
+        }
+
+        .login a {
+            font-size: 15px;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .login > p {
+            margin: 56px 0 0;
+            font-size: 15px;
+            color: var(--color-muted);
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0;
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+
+            .remember-me input {
+                width: 16px;
+                height: 16px;
+                accent-color: var(--color-primary);
+            }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="0%" stop-color="#0f0c29" />
+                    <stop offset="100%" stop-color="#302b63" />
+                </radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#gradient)" />
+        </svg>
+    </div>
+
+    <div class="login">
+        <img src="images/Smart2.png" alt="Employee Portal Logo" />
+        <h2>Employee Portal</h2>
+        <h3>Access your work resources</h3>
+
+        <form>
+            <div class="textbox">
+                <input type="text" required placeholder=" " />
+                <label>Email</label>
+            </div>
+
+            <div class="textbox">
+                <input type="password" required placeholder=" " />
+                <label>Secure Password</label>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox" id="remember" />
+                <label for="remember">Remember this device</label>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <span class="btn-text">Login</span>
+
+                <span class="hover-text">Login</span>
+            </button>
+        </form>
+
+        <a href="#">Forgot your password?</a>
+        <p>Need help? <a href="#">Contact HR department</a></p>
+    </div>
+</body>
+</html>
